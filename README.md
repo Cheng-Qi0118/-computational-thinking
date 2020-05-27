@@ -1,2 +1,1 @@
-# 2038319736
-Nothing
+This Shared document is for learning communication only, not for cheating！
