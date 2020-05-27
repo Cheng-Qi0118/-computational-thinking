@@ -23,4 +23,36 @@ int main(){
  putchar('\n');
  return 0;
 }
-题目三：
+题目三：设有变量定义如下：
+int i=6,j=12;
+double x=3.28,y=90;
+希望得到如下输出结果：
+i=6   j=c
+x=3.280000E+000   y=90
+请编程实现。
+#include<stdio.h>
+int main(){
+ int i=6,j=12;
+ double x=3.28,y=90;
+ printf("i=%d,j=%c\n",i,'c');
+ printf("x=%E,y=%d\n",x,(int)y);
+ return 0; 
+}
+题目四：某种物品每年的折旧费的线性计算方法如下：折旧费=（购买价格—废品价值）/使用年限。请编写一个程序，当输入某物品的购买价格、使用年限和废品价值时，程序能计算出其在某一年折旧后的价值（结果保留两位小数）。
+#include<stdio.h>
+
+int main(void){
+ int limit,year
+ double price,worth,value,wreck;
+ //limit:使用年限;year:使用时间；price:购买价格;worth:废品价格;wreck:每年折损价格;value:折旧后的价值 
+ scanf("%lf %d %lf %d",&price,&limit,&worth,&year);
+ //输入：原先价格，使用年限，废品价格 ，使用年数 
+ wreck=(price-worth)/limit;
+ //计算出每年折损价格 
+ //scanf("%d",&year);
+ //输入：使用年数 
+ value=price-wreck*year;
+ //计算：折旧后的价值
+ printf("折旧后的价值：%.2f",value); 
+ return 0;
+}
