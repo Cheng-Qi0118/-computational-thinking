@@ -56,3 +56,157 @@ int main(void){
  printf("折旧后的价值：%.2f",value); 
  return 0;
 }
+
+题目五：编写程序，计算购货款。请输入购货金额，输出实际付款金额。
+
+购货折扣率如下：
+
+购货金额<=500元         不打折
+
+500元<购货金额<=1000元  9折
+
+1000元<购货金额         8折
+
+分别用if语句、switch语句编程。
+SWITCH语句：
+#include <stdio.h>
+
+void main()
+{
+ float money,pay;
+ int flag;
+ scanf("%f",&money);
+ if(money>500,money<=1000){
+ flag=1;
+ }else if(money>1000){
+ flag=2;
+ }else{
+ flag=0;
+ }
+ switch(flag){
+ case 1:pay=money*0.9;break;
+ case 2:pay=money*0.8;break;
+ case 0:pay=money;break;
+ default:printf("Error!");
+ }
+ printf("%f",pay);
+ return 0;
+}
+
+IF语句：
+#include <stdio.h>
+
+void main()
+{
+ float money,pay;
+ int flag;
+ scanf("%f",&money);
+ pay=money;
+ if(money>500,money<=1000){
+ pay=money*0.9;
+ }else if(money>1000){
+ pay=money*0.8;
+ }
+ printf("%f",pay);
+ return 0;
+}
+
+题目六：输入4个整数，求其前两个数中较小的数与后两个数中较大的数之和。
+#include<stdio.h>
+
+int main(void)
+{
+ int a,b,c,d;
+ scanf("%d %d %d %d",&a,&b,&c,&d);
+ if(a>b){
+ b=a;
+ }else{
+ a=b;
+ }
+ if(c>d){
+ d=c;
+ }else{
+ c=d;
+ }
+ printf("%d",a+c);
+ return 0;
+}
+
+题目七：求平面上两点之间的距离。设这两个点的坐标分别为（x1,y1）、(x2,y2)，程序运行时依次输入x1,y1,x2,y2的值，计算并输出两点距离。请编程实现。
+#include <stdio.h>
+#include <math.h>
+double f(float x1,float y1,float x2,float y2)
+{
+ double m;
+ m=sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+ return m;
+}
+int main()
+{
+ float x1,y1,x2,y2;
+ printf("请输入坐标：\n");
+ scanf("%f,%f,%f,%f",&x1,&y1,&x2,&y2);
+ printf("距离:%f\n",f(x1,y1,x2,y2));
+}
+
+题目八：把输入的任意秒数（1~2^32-1）转换为“小时:分钟:秒”的形式并输出，例如7432秒可转换为2小时3分钟52秒，即2:3:52。
+#include<stdio.h>
+
+int main(void)
+{
+ int a,b,c,sec,min,hou;
+ scanf("%d",&a);
+ sec=a%60;
+ b=(a-sec)/60;
+ min=b%60;
+ c=(b-min)/60;
+ hou=c;
+ printf("%d:%d:%d",hou,min,sec);
+ return 0;
+}
+
+题目九：从键盘输入任意一个大写英文字母，求出它在26个字母表中的位置，以及它在字母表中其后面的第4个字母，如果查找第4个字母时已经超出了字母表的最后一个字母，则返回到字母表的第一个字母继续查找。例如，大写字母’Y’后面的第4个字母为’C’。请编程实现。
+#include<stdio.h>
+
+int main(void)
+{
+ char a,b;
+ printf("请输入一个大写英文字母:\n");
+ scanf("%c",&a);
+ if(a<65,a>90){
+ printf("你输入的不是大写字母,请重新输入！\n");
+ scanf("%c",&a);
+ }
+ else{
+ printf("这是第%d位大写字母\n",a-64);
+ }
+ b=a+4;
+ if(a+4<=90){
+ printf("它的后面第四个字母是%c",b);
+ }else{
+ b=a+4-26;
+ printf("它的后面第四个字母是%c",b);
+ }
+}
+
+题目十：
+对输入的任意四位整数x，求出它的逆序数y，并输出y的值，所谓逆序数，是指把x的个位、十位、百位、千位分别作为千位、百位、十位、个位重新构成的整数。注意：要根据分离出的x的各位重新计算出其逆序数y，然后再输出变量y的值。
+#include<stdio.h>
+
+int main(void)
+{
+ int x,a,b,c,d,y;
+ printf("请输入一个四位数\n");
+ scanf("%d",&x);
+ a=x%10;
+ x=x-a;
+ b=x%100/10;
+ x=x-b;
+ c=x%1000/100;
+ x=x-c;
+ d=x/1000;
+ y=a*1000+b*100+c*10+d;
+ printf("逆序数为%d%d%d%d，值为%d",a,b,c,d,y);
+ return 0;
+}
+
