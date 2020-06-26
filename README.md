@@ -1,1 +1,2 @@
-This Shared document is for learning communication only, not for cheating！
+该文档仅用于学习交流，切勿完全照抄。
+该文档用于存放本人大学学习C语言期间的任务完成。
